@@ -36,13 +36,12 @@ app.use(passport.session());
 //cors
 app.use(
 	cors({
-		// origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
-		origin: [urlInfo.CLIENT_URL,urlInfo.SERVER_URL,urlInfo.SERVER_URL_ISSUE,urlInfo.Login_URL_ISSUE,urlInfo.CLINE_URL_ISSUE],
-		// methods: "GET,POST,PUT,DELETE"	 
+		origin: [urlInfo.CLIENT_URL, urlInfo.SERVER_URL, urlInfo.SERVER_URL_ISSUE, urlInfo.Login_URL_ISSUE, urlInfo.CLINE_URL_ISSUE,
+			urlInfo.CLIENT_URL1,urlInfo.SERVER_URL1,urlInfo.SERVER_URL_ISSUE1,urlInfo.Login_URL_ISSUE1,urlInfo.CLINE_URL_ISSUE1]
+		,methods: "GET,POST,PUT,DELETE"	 
 	})
 );
-// app.use(cors())
-// app.use(cors())
+ 
 
 //user
 app.use("/auth", authRoute);
