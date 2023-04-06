@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 const authRoute = require("./routes/auth");
 const eventRoutes = require("./routes/eventRoutes") 
-
+const urlInfo=require("./config/constants")
 const app = express();
 require("./passport")
 const database_url=process.env.DATABASE_URL;
@@ -36,7 +36,8 @@ app.use(passport.session());
 //cors
 app.use(
 	cors({
-		origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
+		// origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
+		 origin: urlInfo.CLIENT_URL,
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
