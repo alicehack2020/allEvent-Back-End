@@ -1,7 +1,6 @@
 const UserModel = require("../model/User.js");
 const Jwt = require("jsonwebtoken")
 const generator = require("generate-password")
-const crypto = require('crypto');
 
 class EventController {
   static login = async (req, res) => {

@@ -28,18 +28,6 @@ app.use(cors({
   }));
 
 
-app.use(
-	cookieSession({
-		name: "session",
-		keys: ["cyberwolve"],
-		maxAge: 24 * 60 * 60 * 100,
-	})
-);
-
-
-
- 
- 
 
 //user
 app.use("/auth", authRoute);
