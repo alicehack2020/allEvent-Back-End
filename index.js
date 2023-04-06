@@ -1,18 +1,16 @@
 require("dotenv").config();
 const express = require("express");
 var cors = require('cors')
-const passport = require("passport");
+ 
 
-const cookieSession = require("cookie-session");
-const passportStrategy = require("./passport");
 const connectDb = require('./config/connectdb');
 const bodyParser = require('body-parser');
 
 const authRoute = require("./routes/auth");
 const eventRoutes = require("./routes/eventRoutes") 
-const urlInfo=require("./config/constants")
-const app = express();
-require("./passport")
+ const app = express();
+ 
+
 const database_url=process.env.DATABASE_URL;
 //database connection
 connectDb(database_url)
