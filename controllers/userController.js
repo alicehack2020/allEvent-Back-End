@@ -1,13 +1,16 @@
 const UserModel = require("../model/User.js");
 const Jwt = require("jsonwebtoken")
-const generator =require("generate-password")
+const generator = require("generate-password")
+const crypto = require('crypto');
+
 class EventController {
-    static login = async(req,res) => {
-    
-    if (req.user) {
-    const email = req.user.emails[0].value
-            
-    const user = await UserModel.findOne({ email: email })
+  static login = async (req, res) => {
+      
+
+    try {
+      const { data } = req.body 
+      const { email,name,userImage}=data
+     const user = await UserModel.findOne({ email: email })
     if(user)
     {
          const data = {
@@ -19,26 +22,20 @@ class EventController {
               "status": "success", "message": "Login successfully", data: {
               data,token
              }})
-      }
-        else
+    }
+      else
         {
           try {
             var password = generator.generate({
               length: 10,
               numbers: true
             }); 
-            
-
-            // console.log("req.user==>", req.user)
-            const { photos, displayName, emails, id } = req.user
-            
-             
+ 
             const doc=new UserModel({
-              name:displayName,
-              email:emails[0].value,
+              name:name,
+              email:email,
               password: password,
-              googleId:id,
-              imageUrl:photos[0].value
+              imageUrl:userImage
             })
 
             await doc.save()
@@ -61,10 +58,12 @@ class EventController {
             res.send({"status":"failed","message":"unable to register"})
            }
         }
- 
-        } else {
-            res.status(403).json({ error: true, message: "Not Authorized" });
-        } 
+      
+      
+    } catch (error) {
+      console.log("error---------------------->",error)
+    }
+       
     } 
 }
 
