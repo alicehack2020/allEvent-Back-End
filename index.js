@@ -34,14 +34,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 //cors
-// app.use(
-// 	cors({
-// 		origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
-// 		methods: "GET,POST,PUT,DELETE",
-// 		credentials: true,
-// 	})
-// );
-app.use(cors())
+app.use(
+	cors({
+		origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
+// app.use(cors())
 
 
 //user
