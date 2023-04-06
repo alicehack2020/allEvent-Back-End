@@ -49,7 +49,7 @@ app.use(
 app.use("/auth", authRoute);
 //issue
 
-app.use("/auth", authRoute);
+app.use("auth", authRoute);
 //events
 app.use('/api/event', eventRoutes)
 
