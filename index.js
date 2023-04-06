@@ -21,7 +21,7 @@ connectDb(database_url)
 app.use(bodyParser.json());
 
 app.use(cors({
-	origin: 'https://alleventsio.netlify.app',
+	origin: ['https://alleventsio.netlify.app',urlInfo.SERVER_URL,urlInfo.Login_URL_ISSUE],
 	methods: ['GET', 'POST', 'PUT', 'DELETE'],
 	allowedHeaders: ['Content-Type', 'Authorization'],
 	credentials: true // Set this to 'true' to allow credentials
