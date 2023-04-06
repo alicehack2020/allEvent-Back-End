@@ -45,7 +45,7 @@ app.use(
 
 
 //user
-app.use("/auth", authRoute);
+app.use("auth", authRoute);
 //events
 app.use('/api/event', eventRoutes)
 
