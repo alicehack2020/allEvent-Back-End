@@ -49,7 +49,7 @@ app.use("/auth", authRoute);
 app.use('/api/event', eventRoutes)
 
 app.get("/", (req, res) => {
-	res.send(<h1>Welcome</h1>)
+	res.send("Welcome")
 })
 
 const port = process.env.PORT || 8080;
