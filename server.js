@@ -12,6 +12,7 @@ const authRoute = require("./routes/auth");
 const eventRoutes = require("./routes/eventRoutes") 
 
 const app = express();
+require("./passport")
 const database_url=process.env.DATABASE_URL;
 //database connection
 connectDb(database_url)
@@ -35,7 +36,7 @@ app.use(passport.session());
 
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})

@@ -1,6 +1,6 @@
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 const passport = require("passport");
-
+require('dotenv').config()
 passport.use(
 	new GoogleStrategy(
 		{
