@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
+var cors = require('cors')
 const passport = require("passport");
 
 const cookieSession = require("cookie-session");
@@ -37,13 +37,14 @@ app.use(passport.session());
 app.use(
 	cors({
 		// origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
-		origin: [urlInfo.CLIENT_URL,urlInfo.SERVER_URL,urlInfo.SERVER_URL_ISSUE],
-		methods: "GET,POST,PUT,DELETE"
+		// origin: [urlInfo.CLIENT_URL,urlInfo.SERVER_URL,urlInfo.SERVER_URL_ISSUE],
+		// methods: "GET,POST,PUT,DELETE"
+		origin:false
 		 
 	})
 );
 // app.use(cors())
-
+// app.use(cors())
 
 //user
 app.use("/auth", authRoute);
