@@ -8,7 +8,8 @@ passport.use(
 		{
 			clientID: process.env.CLIENT_ID,
 			clientSecret: process.env.CLIENT_SECRET,
-			callbackURL: "https://alleventbackendupdated.onrender.com/auth/google/callback", // Update with your HTTPS redirect URI
+			// callbackURL: "https://alleventbackendupdated.onrender.com/auth/google/callback", // Update with your HTTPS redirect URI
+			callbackURL: "/auth/google/callback", // Update with your HTTPS redirect URI
 			scope: ["profile", "email"],
 		},
 		function (accessToken, refreshToken, profile, callback) {
