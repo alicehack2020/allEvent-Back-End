@@ -44,15 +44,11 @@ app.use(passport.session());
 
 //user
 app.use("/auth", authRoute);
-//issue
 
-app.use("auth", authRoute);
 //events
 app.use('/api/event', eventRoutes)
 
-app.get("/", (req, res) => {
-	res.send("Welcome")
-})
+ 
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listenting on port ${port}...`));
