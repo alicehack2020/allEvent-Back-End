@@ -20,7 +20,12 @@ connectDb(database_url)
 
 app.use(bodyParser.json());
 
-
+app.use(cors({
+	origin: 'https://alleventsio.netlify.app',
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+	allowedHeaders: ['Content-Type', 'Authorization'],
+	credentials: true // Set this to 'true' to allow credentials
+  }));
 
 
 app.use(
@@ -34,13 +39,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 //cors
-app.use(
-	cors({
-		origin: [urlInfo.CLIENT_URL, urlInfo.SERVER_URL, urlInfo.SERVER_URL_ISSUE, urlInfo.Login_URL_ISSUE, urlInfo.CLINE_URL_ISSUE,
-			urlInfo.CLIENT_URL1,urlInfo.SERVER_URL1,urlInfo.SERVER_URL_ISSUE1,urlInfo.Login_URL_ISSUE1,urlInfo.CLINE_URL_ISSUE1]
-		,methods: "GET,POST,PUT,DELETE"	 
-	})
-);
+ 
  
 
 //user
