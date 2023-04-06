@@ -16,11 +16,11 @@ require("./passport")
 const database_url=process.env.DATABASE_URL;
 //database connection
 connectDb(database_url)
-// app.use(cors())
+ 
 
 app.use(bodyParser.json());
 
-//events
+
 
 
 app.use(
@@ -33,7 +33,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+//cors
 app.use(
 	cors({
 		origin: [process.env.CLIENT_URL,'http://localhost:8080','http://localhost:3000'],
@@ -43,8 +43,9 @@ app.use(
 );
 
 
-
+//user
 app.use("/auth", authRoute);
+//events
 app.use('/api/event', eventRoutes)
 
 const port = process.env.PORT || 8080;
